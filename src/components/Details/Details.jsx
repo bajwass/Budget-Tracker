@@ -5,6 +5,8 @@ import useTransactions from '../../useTransactions';
 
 import useStyles from './styles';
 
+import 'chart.js/auto';
+
 const Details = ( {title} ) => {
     const classes = useStyles();
     const { total, chartData } = useTransactions(title);
