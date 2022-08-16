@@ -12,7 +12,7 @@ const initialState = {
 
 const Form = () => {
     const classes = useStyles();
-    const { formData, setFormData } = useState(initialState);
+    const [ formData, setFormData ] = useState(initialState);
 
   return (
     <Grid container spacing={2}>
@@ -24,7 +24,7 @@ const Form = () => {
         <Grid item xs={6}>
             <FormControl fullWidth>
                 <InputLabel>Type</InputLabel>
-                <Select value = {formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })}>
+                <Select value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })}>
                     <MenuItem value="Income">Income</MenuItem>
                     <MenuItem value="Expense">Expense</MenuItem>
                 </Select>
