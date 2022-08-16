@@ -4,6 +4,7 @@ import { BudgetTrackerContext } from '../../../context/context';
 import { v4 as uuidv4 } from 'uuid';
 
 import useStyles from './styles';
+import { incomeCategories, expenseCategories } from '../../../constants/categories';
 
 const initialState = {
     amount: '',
@@ -24,6 +25,8 @@ const Form = () => {
         setFormData(initialState);
     }
 
+    const selectedCategories = formData.type === 'Income' ? incomeCategories : expenseCategories; 
+
 
   return (
     <Grid container spacing={2}>
@@ -42,13 +45,12 @@ const Form = () => {
             </FormControl>
         </Grid>
         <Grid  item xs={6}>
-        <FormControl fullWidth>
-          <InputLabel>Category</InputLabel>
-          <Select value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
-            <MenuItem value="buisness">Buisness</MenuItem>
-            <MenuItem value="salary">salary</MenuItem>
-          </Select>
-        </FormControl>
+            <FormControl fullWidth>
+                <InputLabel>Category</InputLabel>
+                    <Select value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
+                            {selectedCategories.map((c) => <MenuItem key={c.type} value={c.type}>{c.type}</MenuItem>)}
+                    </Select>
+            </FormControl>
         </Grid>
         <Grid item xs={6}>
             <TextField type="number" label="Amount" value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: e.target.value })} fullWidth/>
