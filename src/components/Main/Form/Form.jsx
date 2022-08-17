@@ -6,6 +6,7 @@ import formatDate from '../../../utils/formatDate';
 
 import useStyles from './styles';
 import { incomeCategories, expenseCategories } from '../../../constants/categories';
+import CustomizedSnackbar from '../../SnackBar/Snackbar';
 
 const initialState = {
     amount: '',
@@ -18,10 +19,12 @@ const Form = () => {
     const classes = useStyles();
     const [ formData, setFormData ] = useState(initialState);
     const { addTransaction } = useContext(BudgetTrackerContext);
+    const [ open, setOpen] = useState(false);
 
     const createTransaction = () => {
         const transaction = { ...formData, amount: Number(formData.amount), id: uuidv4() }
-        
+
+        setOpen(true);
         addTransaction(transaction);
         setFormData(initialState);
     }
@@ -31,6 +34,7 @@ const Form = () => {
 
   return (
     <Grid container spacing={2}>
+        <CustomizedSnackbar open={open} setOpen={setOpen} />
         <Grid item xs={12}>
             <Typography align="center" variant="subtitle2" gutterBottom>
                 ...
