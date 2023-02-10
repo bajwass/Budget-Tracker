@@ -14,6 +14,8 @@ This Project was build using the following:
   - LocalStorage to store all the inputs
   - Material UI's
   
+This project was deployed using Netlify
+  
 ## Available Scripts
 
 In the project directory, you can run:
