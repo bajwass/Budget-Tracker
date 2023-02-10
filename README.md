@@ -1,11 +1,11 @@
 # Budget-Tracker
 
-(Project Image)
+![Start](https://user-images.githubusercontent.com/77417014/218219776-29d32653-ce42-4776-86df-f2f446e9e229.png)
 
 This project was created to help manage your budget.
   - The user is able to provide an input for all income soruces, with the dates.
   - The user is able to provide an input for all expenses, with the dates
-  - With the income and expense
+  - The user can also delete an income or expense
   
 This Project was build using the following:
   - React
